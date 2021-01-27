@@ -58,9 +58,15 @@ public class MoveChara {
         }
     }
 
-	// check the place where the cat will go
+    // check the place where the cat will go
     public boolean isMovable(int dx, int dy){
         if (mapData.getMap(posX+dx, posY+dy) == MapData.TYPE_WALL){
+            int r = (int)(Math.random()*2);
+            if (r==0){
+                MapGame.l.setText("壁やないか！");
+            }else{
+                MapGame.l.setText("ほな壁とちゃうな…");
+            }
             return false;
         } else if (mapData.getMap(posX+dx, posY+dy) == MapData.TYPE_SPACE || mapData.getMap(posX+dx, posY+dy) == MapData.TYPE_KEY){
             return true;
